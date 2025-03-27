@@ -16,9 +16,16 @@
     </button>
 
     <div class="container mx-auto px-4 py-8 max-w-4xl">
-        <header class="mb-12">
-            <h1 class="text-4xl font-bold text-blue-600 mb-2">Serial Killers API</h1>
-            <p class="text-lg text-gray-600">Explore criminal history data with ease</p>
+        <header class="mb-12 flex justify-between items-center">
+            <div>
+                <h1 class="text-4xl font-bold text-blue-600 mb-2">Serial Killers API</h1>
+                <p class="text-lg text-gray-600">Explore criminal history data with ease</p>
+            </div>
+            <a href="serial-killers-list.html"
+                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition flex items-center">
+                <i class="ri-database-line mr-2"></i>
+                View Serial Killers
+            </a>
         </header>
 
         <section class="mb-10">
@@ -51,8 +58,9 @@
                                 <strong class="text-green-600">GET</strong>
                                 <code>/serialkillers</code>
                             </div>
-                            <p class="text-sm text-gray-600">Returns a comprehensive list of all serial killers in the database.</p>
-                            
+                            <p class="text-sm text-gray-600">Returns a comprehensive list of all serial killers in the
+                                database.</p>
+
                             <div class="mt-4">
                                 <h4 class="font-semibold mb-2">Example Response:</h4>
                                 <pre class="bg-gray-100 p-4 rounded overflow-x-auto text-sm text-gray-700">[
@@ -86,14 +94,15 @@
                                 <strong class="text-blue-600">GET</strong>
                                 <code>/serialkillers/name/:name</code>
                             </div>
-                            <p class="text-sm text-gray-600">Perform a flexible search with partial, case-insensitive name matching.</p>
-                            
+                            <p class="text-sm text-gray-600">Perform a flexible search with partial, case-insensitive
+                                name matching.</p>
+
                             <div class="mt-4">
                                 <h4 class="font-semibold mb-2">Example Request:</h4>
                                 <code class="bg-gray-100 p-2 rounded text-sm text-gray-700">
                                     https://serial-killers-api.netlify.app/api/serialkillers/name/bundy
                                 </code>
-                                
+
                                 <h4 class="font-semibold mb-2 mt-3">Example Response:</h4>
                                 <pre class="bg-gray-100 p-4 rounded overflow-x-auto text-sm text-gray-700">[
     {
@@ -135,7 +144,8 @@
                                 <strong class="text-green-600">GET</strong>
                                 <code>/statistics/total-victims</code>
                             </div>
-                            <p class="text-sm text-gray-600">Retrieve the total number of victims across all serial killers.</p>
+                            <p class="text-sm text-gray-600">Retrieve the total number of victims across all serial
+                                killers.</p>
                         </div>
 
                         <div>
@@ -147,7 +157,8 @@
                                 <strong class="text-blue-600">GET</strong>
                                 <code>/statistics/victims-by-country</code>
                             </div>
-                            <p class="text-sm text-gray-600">Get the distribution of victims across different countries.</p>
+                            <p class="text-sm text-gray-600">Get the distribution of victims across different countries.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -203,7 +214,7 @@
         </section>
     </div>
 
-    <script src="theme-toggle.js"></script>
+    <script src="scripts/theme-toggle.js"></script>
 </body>
 
 </html>
