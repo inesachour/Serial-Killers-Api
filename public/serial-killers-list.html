@@ -27,6 +27,12 @@
         </header>
 
         <div class="bg-white shadow-md rounded-xl p-6">
+            <div id="loading" class="text-center text-gray-600 py-4 hidden">
+                Loading serial killers data...
+            </div>
+            <div id="error" class="text-center text-red-600 py-4 hidden">
+                Error loading data. Please try again later.
+            </div>
             <div class="overflow-x-auto">
                 <table id="serial-killers-table" class="w-full text-sm text-left">
                     <thead class="bg-gray-100 uppercase">
@@ -111,10 +117,10 @@
         </div>
     </div>
 
+    <script src="scripts/theme-toggle.js"></script>
     <script src="scripts/serial-killer-update-request.js">
     </script>
-    <script src="scripts/theme-toggle.js">
-    </script>
+
 </body>
 
 </html>
