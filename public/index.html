@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serial Killers API Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <button id="theme-toggle" aria-label="Toggle dark mode">
+        <i id="theme-icon" class="ri-moon-line"></i>
+    </button>
+
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <header class="mb-12">
+            <h1 class="text-4xl font-bold text-blue-600 mb-2">Serial Killers API</h1>
+            <p class="text-lg text-gray-600">Explore criminal history data with ease</p>
+        </header>
+
+        <section class="mb-10">
+            <div class="bg-white shadow-md rounded-xl p-6">
+                <h2 class="text-2xl font-semibold mb-4 text-gray-800">Base URL</h2>
+                <code class="bg-gray-100 p-3 rounded block text-sm text-gray-700">
+                    https://your-netlify-domain.netlify.app/api
+                </code>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">Endpoints</h2>
+
+            <div class="space-y-6">
+                <div class="bg-white shadow-md rounded-xl p-6">
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800 flex items-center">
+                        <i class="ri-database-2-line mr-3 text-blue-600"></i>
+                        Get All Serial Killers
+                    </h3>
+                    <div class="bg-gray-100 p-3 rounded mb-3">
+                        <strong class="text-green-600">GET</strong>
+                        <code>/serialkillers</code>
+                    </div>
+                    <p class="text-sm text-gray-600">Returns a comprehensive list of all serial killers in the database.
+                    </p>
+                </div>
+
+                <div class="bg-white shadow-md rounded-xl p-6">
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800 flex items-center">
+                        <i class="ri-search-line mr-3 text-blue-600"></i>
+                        Search Serial Killers by Name
+                    </h3>
+                    <div class="bg-gray-100 p-3 rounded mb-3">
+                        <strong class="text-blue-600">GET</strong>
+                        <code>/serialkillers/name/:name</code>
+                    </div>
+                    <p class="text-sm text-gray-600">Perform a flexible search with partial, case-insensitive name
+                        matching.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">Response Example</h2>
+            <div class="bg-white shadow-md rounded-xl p-6">
+                <pre class="bg-gray-100 p-4 rounded overflow-x-auto text-sm text-gray-700">
+{
+    "id": 1,
+    "name": "Ted Bundy",
+    "active_years": "1974-1978",
+    "victims": 30,
+    "country": "United States",
+    "captured": true
+}
+                </pre>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        // Check for saved theme preference or system preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Initial theme setup
+        if (savedTheme === 'dark' || (!savedTheme && prefersDarkMode)) {
+            document.body.classList.add('dark');
+            themeIcon.classList.replace('ri-moon-line', 'ri-sun-line');
+        }
+
+        // Theme toggle event listener
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+
+            // Update icon
+            if (document.body.classList.contains('dark')) {
+                themeIcon.classList.replace('ri-moon-line', 'ri-sun-line');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.replace('ri-sun-line', 'ri-moon-line');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+
+</html>
