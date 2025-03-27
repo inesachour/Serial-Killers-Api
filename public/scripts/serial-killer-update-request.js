@@ -25,15 +25,12 @@ async function fetchSerialKillers() {
             row.innerHTML = `
             <td class="p-3">${killer.id}</td>
             <td class="p-3">${killer.name}</td>
-            <td class="p-3">${killer.activeYears}</td>
-            <td class="p-3">${killer.victims}</td>
-            <td class="p-3">${killer.country}</td>
-            <td class="p-3">${killer.captured ? 'Yes' : 'No'}</td>
+            <td class="p-3">${killer.alias}</td>
             <td class="p-3">
-                <button onclick="openEditModal(${killer.id}, '${killer.name}', '${killer.activeYears}', ${killer.victims}, '${killer.country}', ${killer.captured})" 
-                        class="text-blue-500 hover:text-blue-700">
-                    <i class="ri-edit-line"></i>
-                </button>
+                <button onclick="openEditModal(${killer.id}, '${killer.name}', '${killer.alias}')" 
+                                class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition">
+                            Edit Request
+                        </button>
             </td>
         `;
             killersList.appendChild(row);
@@ -50,17 +47,14 @@ async function fetchSerialKillers() {
 }
 
 // Function to open edit modal
-function openEditModal(id, name, activeYears, victims, country, captured) {
+function openEditModal(id, name, alias) {
     document.getElementById('edit-id').value = id;
     document.getElementById('edit-name').value = name;
-    document.getElementById('edit-active-years').value = activeYears;
-    document.getElementById('edit-victims').value = victims;
-    document.getElementById('edit-country').value = country;
+    document.getElementById('edit-alias').value = alias;
 
-    // Set the captured radio button
-    document.getElementById(captured ? 'edit-captured-yes' : 'edit-captured-no').checked = true;
-
-    document.getElementById('edit-modal').classList.remove('hidden');
+    const editModal = document.getElementById('edit-modal');
+    editModal.classList.remove('hidden');
+    editModal.classList.add('flex');
 }
 
 // Close modal function
