@@ -61,21 +61,43 @@
                                 <h4 class="font-semibold mb-2">Example Response:</h4>
                                 <pre class="bg-gray-100 p-4 rounded overflow-x-auto text-sm text-gray-700">[
     {
-        "id": 1,
+        "id": "5",
         "name": "Ted Bundy",
+        "alias": "The Campus Killer, The Lady Killer",
+        "birth_date": "1946-11-24",
+        "death_date": "1989-01-24",
+        "nationality": "American",
+        "gender": "Male",
+        "race": "White",
         "active_years": "1974-1978",
-        "victims": 30,
-        "country": "United States",
-        "captured": true
+        "victim_count": 30,
+        "suspected_victim_count": "36+",
+        "modus_operandi": "",
+        "active_countries": "United States",
+        "capture_date": "1975-08-16",
+        "sentencing": "Death",
+        "execution_date": "1989-01-24",
+        "cause_of_death": "Execution (electric chair)"
     },
     {
-        "id": 2,
+        "id": "6",
         "name": "Jeffrey Dahmer",
+        "alias": "The Milwaukee Cannibal",
+        "birth_date": "1960-05-21",
+        "death_date": "1994-11-28",
+        "nationality": "American",
+        "gender": "Male",
+        "race": "White",
         "active_years": "1978-1991",
-        "victims": 17,
-        "country": "United States",
-        "captured": true
-    }
+        "victim_count": 17,
+        "suspected_victim_count": "",
+        "modus_operandi": "",
+        "active_countries": "United States",
+        "capture_date": "1991-07-22",
+        "sentencing": "Life in prison without parole",
+        "execution_date": "",
+        "cause_of_death": "Murdered in prison"
+    },
     // ... more serial killers
 ]</pre>
                             </div>
@@ -101,63 +123,31 @@
 
                                 <h4 class="font-semibold mb-2 mt-3">Example Response:</h4>
                                 <pre class="bg-gray-100 p-4 rounded overflow-x-auto text-sm text-gray-700">[
-    {
-        "id": 1,
-        "name": "Ted Bundy",
-        "active_years": "1974-1978",
-        "victims": 30,
-        "country": "United States",
-        "captured": true,
-        "additional_details": {
-            "birth_date": "November 24, 1946",
-            "death_date": "January 24, 1989",
-            "method": "Executed by electric chair",
-            "notable_locations": ["Washington", "Utah", "Florida"]
-        }
-    }
+                                    {
+"id": "5",
+"name": "Ted Bundy",
+"alias": "The Campus Killer, The Lady Killer",
+"birth_date": "1946-11-24",
+"death_date": "1989-01-24",
+"nationality": "American",
+"gender": "Male",
+"race": "White",
+"active_years": "1974-1978",
+"victim_count": 30,
+"suspected_victim_count": "36+",
+"modus_operandi": "",
+"active_countries": "United States",
+"capture_date": "1975-08-16",
+"sentencing": "Death",
+"execution_date": "1989-01-24",
+"cause_of_death": "Execution (electric chair)"
+                                      },
 ]</pre>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Statistics Endpoints (Placeholder) -->
-                <div class="bg-white shadow-md rounded-xl p-6">
-                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">
-                        <i class="ri-bar-chart-line mr-3 text-blue-600"></i>
-                        Statistics Endpoints
-                    </h3>
-                    <p class="text-gray-600 mb-4">Coming soon: Aggregate data and insights about serial killers.</p>
-                    <div class="space-y-4">
-                        <!-- Add your statistics endpoints here -->
-                        <!-- Example placeholders -->
-                        <div>
-                            <h3 class="text-xl font-semibold mb-3 text-gray-800 flex items-center">
-                                <i class="ri-database-line mr-3 text-blue-600"></i>
-                                Get Total Victims
-                            </h3>
-                            <div class="bg-gray-100 p-3 rounded mb-3">
-                                <strong class="text-green-600">GET</strong>
-                                <code>/statistics/total-victims</code>
-                            </div>
-                            <p class="text-sm text-gray-600">Retrieve the total number of victims across all serial
-                                killers.</p>
-                        </div>
-
-                        <div>
-                            <h3 class="text-xl font-semibold mb-3 text-gray-800 flex items-center">
-                                <i class="ri-map-pin-line mr-3 text-blue-600"></i>
-                                Get Victims by Country
-                            </h3>
-                            <div class="bg-gray-100 p-3 rounded mb-3">
-                                <strong class="text-blue-600">GET</strong>
-                                <code>/statistics/victims-by-country</code>
-                            </div>
-                            <p class="text-sm text-gray-600">Get the distribution of victims across different countries.
-                            </p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -175,14 +165,39 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="border p-2">id</td>
-                            <td class="border p-2">Number</td>
-                            <td class="border p-2">Unique identifier for the serial killer</td>
-                        </tr>
-                        <tr>
                             <td class="border p-2">name</td>
                             <td class="border p-2">String</td>
                             <td class="border p-2">Full name of the serial killer</td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">alias</td>
+                            <td class="border p-2">String</td>
+                            <td class="border p-2">Any known aliases of the serial killer</td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">birth_date</td>
+                            <td class="border p-2">Date</td>
+                            <td class="border p-2">Date of birth of the serial killer</td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">death_date</td>
+                            <td class="border p-2">Date</td>
+                            <td class="border p-2">Date of death, if applicable</td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">nationality</td>
+                            <td class="border p-2">String</td>
+                            <td class="border p-2">Nationality of the serial killer</td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">gender</td>
+                            <td class="border p-2">String</td>
+                            <td class="border p-2">Gender of the serial killer</td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">race</td>
+                            <td class="border p-2">String</td>
+                            <td class="border p-2">Race or ethnicity of the serial killer</td>
                         </tr>
                         <tr>
                             <td class="border p-2">active_years</td>
@@ -190,19 +205,44 @@
                             <td class="border p-2">Period during which the serial killer was active</td>
                         </tr>
                         <tr>
-                            <td class="border p-2">victims</td>
+                            <td class="border p-2">victims_count</td>
                             <td class="border p-2">Number</td>
                             <td class="border p-2">Confirmed number of victims</td>
                         </tr>
                         <tr>
-                            <td class="border p-2">country</td>
-                            <td class="border p-2">String</td>
-                            <td class="border p-2">Country where the serial killer operated</td>
+                            <td class="border p-2">suspected_victims_count</td>
+                            <td class="border p-2">Number</td>
+                            <td class="border p-2">Suspected number of victims, if any</td>
                         </tr>
                         <tr>
-                            <td class="border p-2">captured</td>
-                            <td class="border p-2">Boolean</td>
-                            <td class="border p-2">Whether the serial killer was captured</td>
+                            <td class="border p-2">modus_operandi</td>
+                            <td class="border p-2">String</td>
+                            <td class="border p-2">The method(s) used by the killer to carry out the crimes</td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">active_countries</td>
+                            <td class="border p-2">String</td>
+                            <td class="border p-2">Country or countries where the serial killer operated</td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">capture_date</td>
+                            <td class="border p-2">Date</td>
+                            <td class="border p-2">Date when the serial killer was captured</td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">sentencing</td>
+                            <td class="border p-2">String</td>
+                            <td class="border p-2">Details about the sentence given to the serial killer</td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">execution_date</td>
+                            <td class="border p-2">Date</td>
+                            <td class="border p-2">Date of execution if applicable</td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">cause_of_death</td>
+                            <td class="border p-2">String</td>
+                            <td class="border p-2">Cause of death (e.g., execution, natural causes, etc.)</td>
                         </tr>
                     </tbody>
                 </table>
